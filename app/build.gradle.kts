@@ -1,24 +1,31 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
-    id("com.google.devtools.ksp")
-    id("com.google.dagger.hilt.android")
-    id("androidx.navigation.safeargs.kotlin")
-    kotlin("plugin.serialization") version "2.0.21"
+    alias(libs.plugins.google.ksp)
+    alias(libs.plugins.google.hilt)
+    alias(libs.plugins.android.navigation.safe.args)
+    alias(libs.plugins.detekt)
+    alias(libs.plugins.kotlin.serialization)
 }
 
 android {
-    namespace = "com.example.marvel_app"
+    namespace = "com.example.marvelapp"
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.example.marvel_app"
+        applicationId = "com.example.marvelapp"
         minSdk = 24
         targetSdk = 36
         versionCode = 1
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    detekt {
+        config.setFrom(files("$rootDir/detekt.yml"))
+        buildUponDefaultConfig = true
+        basePath.set(projectDir)
     }
 
     buildTypes {
@@ -40,6 +47,7 @@ android {
 }
 
 dependencies {
+    // Modules
     implementation(project(":core"))
 
     implementation(libs.androidx.core.ktx)
@@ -81,5 +89,5 @@ dependencies {
     implementation(libs.androidx.datastore.preferences)
 
     // Glide
-    ksp(libs.ksp)
+    ksp(libs.glideKsp)
 }

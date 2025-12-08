@@ -18,7 +18,6 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-
-rootProject.name = "marvel_app"
+rootProject.name = "marvelapp"
 include(":app")
 include(":core")
