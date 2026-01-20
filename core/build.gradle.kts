@@ -17,3 +17,7 @@ detekt {
     buildUponDefaultConfig = true
     basePath.set(projectDir)
 }
+dependencies {
+    // Retrofit
+    implementation(libs.converter.gson)
+}
