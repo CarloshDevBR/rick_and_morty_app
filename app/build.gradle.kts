@@ -20,6 +20,14 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        val baseUrl = providers.gradleProperty("BASE_URL").get()
+
+        buildConfigField(
+            "String",
+            "BASE_URL",
+            "\"$baseUrl\""
+        )
     }
 
     detekt {
@@ -39,6 +47,7 @@ android {
     }
     buildFeatures {
         viewBinding = true
+        buildConfig = true
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
