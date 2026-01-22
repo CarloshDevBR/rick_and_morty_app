@@ -3,7 +3,7 @@
     <item
         android:id="@+id/characters"
         android:icon="@drawable/ic_heroes_menu_outlined"
-        android:title="@string/app_menu_heroes" />
+        android:title="@string/app_menu_characters" />
     <item
         android:id="@+id/favorites"
         android:icon="@drawable/ic_favorite_menu_outlined"
