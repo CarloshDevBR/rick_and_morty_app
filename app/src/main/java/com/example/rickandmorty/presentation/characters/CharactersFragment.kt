@@ -1,14 +1,15 @@
-package com.example.marvelapp.presentation.about
+package com.example.rickandmorty.presentation.characters
 
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
-import com.example.marvelapp.databinding.FragmentAboutBinding
+import com.example.marvelapp.R
+import com.example.marvelapp.databinding.FragmentCharactersBinding
 
-class AboutFragment : Fragment() {
-    private var _binding: FragmentAboutBinding? = null
+class CharactersFragment : Fragment() {
+    private var _binding: FragmentCharactersBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -16,7 +17,7 @@ class AboutFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentAboutBinding.inflate(
+        _binding = FragmentCharactersBinding.inflate(
             inflater,
             container,
             false

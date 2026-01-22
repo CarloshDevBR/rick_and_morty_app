@@ -1,4 +1,4 @@
-package com.example.marvelapp.presentation
+package com.example.rickandmorty.presentation
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge

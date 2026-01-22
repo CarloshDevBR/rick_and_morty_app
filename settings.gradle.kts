@@ -18,6 +18,6 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-rootProject.name = "marvelapp"
+rootProject.name = "rickandmorty"
 include(":app")
 include(":core")

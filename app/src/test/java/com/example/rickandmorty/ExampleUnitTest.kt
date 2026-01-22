@@ -1,4 +1,4 @@
-package com.example.marvelapp
+package com.example.rickandmorty
 
 import org.junit.Test
 import org.junit.Assert.assertEquals

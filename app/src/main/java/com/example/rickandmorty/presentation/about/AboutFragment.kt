@@ -1,14 +1,14 @@
-package com.example.marvelapp.presentation.favorites
+package com.example.rickandmorty.presentation.about
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.marvelapp.databinding.FragmentFavoritesBinding
+import com.example.marvelapp.databinding.FragmentAboutBinding
 
-class FavoritesFragment : Fragment() {
-    private var _binding: FragmentFavoritesBinding? = null
+class AboutFragment : Fragment() {
+    private var _binding: FragmentAboutBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -16,7 +16,7 @@ class FavoritesFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentFavoritesBinding.inflate(
+        _binding = FragmentAboutBinding.inflate(
             inflater,
             container,
             false
