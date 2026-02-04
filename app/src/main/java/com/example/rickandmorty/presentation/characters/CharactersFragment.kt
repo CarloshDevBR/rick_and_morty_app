@@ -5,8 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.marvelapp.R
-import com.example.marvelapp.databinding.FragmentCharactersBinding
+import com.example.rickandmorty.databinding.FragmentCharactersBinding
 
 class CharactersFragment : Fragment() {
     private var _binding: FragmentCharactersBinding? = null

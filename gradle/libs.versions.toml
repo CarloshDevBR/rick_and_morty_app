@@ -12,6 +12,7 @@ kotlinxSerializationJson = "1.9.0"
 kotlinSerialization = "2.2.21"
 ksp = "2.2.20-2.0.4"
 glideKsp = "5.0.5"
+loggingInterceptor = "5.3.2"
 material = "1.13.0"
 activity = "1.12.1"
 constraintlayout = "2.2.1"
@@ -44,6 +45,7 @@ androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-co
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinxSerializationJson" }
 glideKsp = { module = "com.github.bumptech.glide:ksp", version.ref = "glideKsp" }
+logging-interceptor = { module = "com.squareup.okhttp3:logging-interceptor", version.ref = "loggingInterceptor" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }

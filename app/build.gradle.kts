@@ -9,11 +9,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.marvelapp"
+    namespace = "com.example.rickandmorty"
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.example.marvelapp"
+        applicationId = "com.example.rickandmorty"
         minSdk = 24
         targetSdk = 36
         versionCode = 1
@@ -53,8 +53,10 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
-    kotlinOptions {
-        jvmTarget = "11"
+    kotlin {
+        compilerOptions {
+            jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_11)
+        }
     }
 }
 
@@ -84,6 +86,8 @@ dependencies {
     // Retrofit
     implementation(libs.retrofit)
     implementation(libs.converter.gson)
+
+    implementation(libs.logging.interceptor)
 
     // ROOM
     implementation(libs.androidx.room.runtime)
