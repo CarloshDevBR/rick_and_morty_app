@@ -22,11 +22,23 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
         val baseUrl = providers.gradleProperty("BASE_URL").get()
+        val publicKey = providers.gradleProperty("PUBLIC_KEY").get()
+        val privateKey = providers.gradleProperty("PRIVATE_KEY").get()
 
         buildConfigField(
             "String",
             "BASE_URL",
             "\"$baseUrl\""
+        )
+        buildConfigField(
+            "String",
+            "PUBLIC_KEY",
+            "\"$publicKey\""
+        )
+        buildConfigField(
+            "String",
+            "PRIVATE_KEY",
+            "\"$privateKey\""
         )
     }
 
@@ -105,5 +117,6 @@ dependencies {
     implementation(libs.androidx.datastore.preferences)
 
     // Glide
+    implementation(libs.glide)
     ksp(libs.glideKsp)
 }
