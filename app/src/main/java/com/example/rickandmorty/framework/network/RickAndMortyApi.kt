@@ -1,6 +1,6 @@
-package com.example.domain.data.network
+package com.example.rickandmorty.framework.network
 
-import com.example.domain.data.network.response.DataWrapperResponse
+import com.example.rickandmorty.framework.network.response.DataWrapperResponse
 import retrofit2.http.GET
 import retrofit2.http.QueryMap
 

@@ -1,8 +1,8 @@
-package com.example.domain.data.network.response
+package com.example.rickandmorty.framework.network.response
 
 import com.google.gson.annotations.SerializedName
 
-data class OriginCharacter(
+data class LocationCharacter(
     @SerializedName("name")
     val name: String,
     @SerializedName("url")

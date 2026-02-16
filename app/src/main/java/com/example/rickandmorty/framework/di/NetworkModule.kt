@@ -1,6 +1,6 @@
 package com.example.rickandmorty.framework.di
 
-import com.example.domain.data.network.interceptor.AuthorizationInterceptor
+import com.example.rickandmorty.framework.network.interceptor.AuthorizationInterceptor
 import com.example.rickandmorty.BuildConfig
 import dagger.Module
 import dagger.Provides

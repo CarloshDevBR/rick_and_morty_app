@@ -8,7 +8,7 @@ import com.example.domain.model.CharacterData
 import com.example.rickandmorty.R
 import com.example.rickandmorty.databinding.ItemCharacterBinding
 
-class CharacterViewHolder(
+class CharactersViewHolder(
     itemCharacterBinding: ItemCharacterBinding
 ) : RecyclerView.ViewHolder(itemCharacterBinding.root) {
     private val textName = itemCharacterBinding.textName
@@ -23,10 +23,10 @@ class CharacterViewHolder(
     }
 
     companion object {
-        fun create(parent: ViewGroup): CharacterViewHolder {
+        fun create(parent: ViewGroup): CharactersViewHolder {
             val inflater = LayoutInflater.from(parent.context)
             val itemBinding = ItemCharacterBinding.inflate(inflater, parent, false)
-            return CharacterViewHolder(itemBinding)
+            return CharactersViewHolder(itemBinding)
         }
     }
 }

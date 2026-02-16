@@ -4,13 +4,13 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import com.example.domain.model.CharacterData
-import com.example.rickandmorty.presentation.characters.holder.CharacterViewHolder
+import com.example.rickandmorty.presentation.characters.holder.CharactersViewHolder
 
-class CharacterAdapter : ListAdapter<CharacterData, CharacterViewHolder>(diffCallback) {
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CharacterViewHolder =
-        CharacterViewHolder.create(parent)
+class CharactersAdapter : ListAdapter<CharacterData, CharactersViewHolder>(diffCallback) {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CharactersViewHolder =
+        CharactersViewHolder.create(parent)
 
-    override fun onBindViewHolder(holder: CharacterViewHolder, position: Int) =
+    override fun onBindViewHolder(holder: CharactersViewHolder, position: Int) =
         holder.bind(getItem(position))
 
     private companion object {

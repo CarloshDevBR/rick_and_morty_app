@@ -1,4 +1,4 @@
-package com.example.domain.data.network.response
+package com.example.rickandmorty.framework.network.response
 
 import com.google.gson.annotations.SerializedName
 

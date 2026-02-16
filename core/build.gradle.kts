@@ -20,4 +20,10 @@ detekt {
 dependencies {
     // Retrofit
     implementation(libs.converter.gson)
+
+    // Paging Common
+    implementation(libs.androidx.paging.common)
+
+    // Javax Inject
+    implementation(libs.javax.inject)
 }
