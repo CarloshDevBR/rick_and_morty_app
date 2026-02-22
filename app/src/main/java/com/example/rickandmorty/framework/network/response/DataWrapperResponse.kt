@@ -6,5 +6,5 @@ data class DataWrapperResponse(
     @SerializedName("info")
     val info: PageResponse,
     @SerializedName("results")
-    val results: CharacterResponse
+    val results: List<CharacterResponse>
 )

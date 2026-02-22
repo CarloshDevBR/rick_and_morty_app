@@ -1,5 +1,6 @@
 package com.example.rickandmorty.framework.network.response
 
+import com.example.domain.model.CharacterData
 import com.google.gson.annotations.SerializedName
 
 data class CharacterResponse(
@@ -28,3 +29,10 @@ data class CharacterResponse(
     @SerializedName("created")
     val created: String
 )
+
+fun CharacterResponse.toCharacterModel(): CharacterData =
+    CharacterData(
+        id = this.id,
+        name = this.name,
+        imageUrl = this.image,
+    )

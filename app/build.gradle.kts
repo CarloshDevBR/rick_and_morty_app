@@ -99,6 +99,7 @@ dependencies {
     implementation(libs.retrofit)
     implementation(libs.converter.gson)
 
+    // Okhttp3 Interceptor
     implementation(libs.logging.interceptor)
 
     // ROOM

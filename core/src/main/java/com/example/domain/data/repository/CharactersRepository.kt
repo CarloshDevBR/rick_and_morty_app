@@ -1,8 +1,8 @@
 package com.example.domain.data.repository
 
 import androidx.paging.PagingSource
-import javax.xml.stream.events.Characters
+import com.example.domain.model.CharacterData
 
 interface CharactersRepository {
-    fun getCharacters(query: String): PagingSource<Int, Characters>
+    fun getCharacters(query: String): PagingSource<Int, CharacterData>
 }
