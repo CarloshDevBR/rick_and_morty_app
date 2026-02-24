@@ -1,17 +1,21 @@
 package com.example.rickandmorty.presentation.characters.adapter
 
 import android.view.ViewGroup
+import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import com.example.domain.model.CharacterData
 import com.example.rickandmorty.presentation.characters.holder.CharactersViewHolder
 
-class CharactersAdapter : ListAdapter<CharacterData, CharactersViewHolder>(diffCallback) {
+class CharactersAdapter : PagingDataAdapter<CharacterData, CharactersViewHolder>(diffCallback) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CharactersViewHolder =
         CharactersViewHolder.create(parent)
 
-    override fun onBindViewHolder(holder: CharactersViewHolder, position: Int) =
-        holder.bind(getItem(position))
+    override fun onBindViewHolder(holder: CharactersViewHolder, position: Int) {
+        getItem(position)?.let {
+            holder.bind(it)
+        }
+    }
 
     private companion object {
         private val diffCallback = object : DiffUtil.ItemCallback<CharacterData>() {

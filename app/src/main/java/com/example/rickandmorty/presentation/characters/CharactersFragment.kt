@@ -5,15 +5,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.domain.model.CharacterData
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import com.example.rickandmorty.databinding.FragmentCharactersBinding
 import com.example.rickandmorty.presentation.characters.adapter.CharactersAdapter
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class CharactersFragment : Fragment() {
     private var _binding: FragmentCharactersBinding? = null
     private val binding get() = _binding!!
+
+    private val viewModel: CharactersViewModel by viewModels()
 
     private val adapter = CharactersAdapter()
 
@@ -36,24 +40,10 @@ class CharactersFragment : Fragment() {
 
     private fun setupCharactersAdapter() = with(binding) {
         recyclerCharacters.adapter = adapter
-        adapter.submitList(
-            listOf(
-                CharacterData(
-                    id = 1,
-                    name = "Tusked Assassin",
-                    imageUrl = "https://rickandmortyapi.com/api/character/avatar/369.jpeg",
-                ),
-                CharacterData(
-                    id = 2,
-                    name = "Tusked Assassin",
-                    imageUrl = "https://rickandmortyapi.com/api/character/avatar/369.jpeg",
-                ),
-                CharacterData(
-                    id = 3,
-                    name = "Tusked Assassin",
-                    imageUrl = "https://rickandmortyapi.com/api/character/avatar/369.jpeg",
-                )
-            )
-        )
+        lifecycleScope.launch {
+            viewModel.charactersPagingData("").collect { pagingData ->
+                adapter.submitData(pagingData)
+            }
+        }
     }
 }
