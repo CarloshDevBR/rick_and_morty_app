@@ -7,9 +7,11 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.paging.LoadState
 import com.example.rickandmorty.databinding.FragmentCharactersBinding
 import com.example.rickandmorty.presentation.characters.adapter.CharactersAdapter
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
@@ -45,5 +47,20 @@ class CharactersFragment : Fragment() {
                 adapter.submitData(pagingData)
             }
         }
+    }
+
+    private fun observerInitialLoadState() {
+        lifecycleScope.launch {
+            adapter.loadStateFlow.collectLatest { loadStates ->
+                when (loadStates.refresh) {
+                    is LoadState.Loading -> setShimmerVisibility(true)
+                    is LoadState.NotLoading -> setShimmerVisibility(false)
+                }
+            }
+        }
+    }
+
+    private fun setShimmerVisibility(visibility: Boolean) = with(binding.flipperCharacters) {
+
     }
 }
