@@ -120,4 +120,7 @@ dependencies {
     // Glide
     implementation(libs.glide)
     ksp(libs.glideKsp)
+
+    // Facebook Shimmer
+    implementation(libs.shimmer)
 }
