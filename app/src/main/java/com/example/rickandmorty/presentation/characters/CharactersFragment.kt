@@ -63,7 +63,10 @@ class CharactersFragment : Fragment() {
                         setShimmerVisibility(false)
                         FLIPPER_CHARACTERS
                     }
-                    else -> FLIPPER_ERROR
+                    is LoadState.Error -> {
+                        setShimmerVisibility(false)
+                        FLIPPER_ERROR
+                    }
                 }
             }
         }
