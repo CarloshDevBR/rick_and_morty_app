@@ -6,10 +6,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.paging.LoadState
 import com.example.rickandmorty.databinding.FragmentCharactersBinding
 import com.example.rickandmorty.presentation.characters.adapter.CharactersAdapter
+import com.example.rickandmorty.presentation.characters.adapter.CharactersLoadMoreStateAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -21,7 +24,7 @@ class CharactersFragment : Fragment() {
 
     private val viewModel: CharactersViewModel by viewModels()
 
-    private val charactersAdapter = CharactersAdapter()
+    private lateinit var charactersAdapter: CharactersAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -37,35 +40,61 @@ class CharactersFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        initCharactersAdapter()
+        setupListeners()
         setupCharactersAdapter()
         observerInitialLoadState()
     }
 
-    private fun setupCharactersAdapter() = with(binding.recyclerCharacters) {
-        setHasFixedSize(true)
-        adapter = charactersAdapter
-        lifecycleScope.launch {
-            viewModel.charactersPagingData("").collectLatest { pagingData ->
-                charactersAdapter.submitData(pagingData)
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
+    private fun initCharactersAdapter() {
+        charactersAdapter = CharactersAdapter()
+        with(binding.recyclerCharacters) {
+            setHasFixedSize(true)
+            adapter = charactersAdapter
+                .withLoadStateFooter(
+                    footer = CharactersLoadMoreStateAdapter(charactersAdapter::retry)
+                )
+        }
+    }
+
+    private fun setupListeners() = with(binding) {
+        includeViewCharactersErrorState.buttonRetry.setOnClickListener {
+            charactersAdapter.refresh()
+        }
+    }
+
+    private fun setupCharactersAdapter() {
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.charactersPagingData(EMPTY).collectLatest { pagingData ->
+                    charactersAdapter.submitData(pagingData)
+                }
             }
         }
     }
 
     private fun observerInitialLoadState() = with(binding.flipperCharacters) {
-        lifecycleScope.launch {
-            charactersAdapter.loadStateFlow.collectLatest { loadStates ->
-                displayedChild = when (loadStates.refresh) {
-                    is LoadState.Loading -> {
-                        setShimmerVisibility(true)
-                        FLIPPER_LOADING
-                    }
-                    is LoadState.NotLoading -> {
-                        setShimmerVisibility(false)
-                        FLIPPER_CHARACTERS
-                    }
-                    is LoadState.Error -> {
-                        setShimmerVisibility(false)
-                        FLIPPER_ERROR
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                charactersAdapter.loadStateFlow.collectLatest { loadStates ->
+                    displayedChild = when (loadStates.refresh) {
+                        is LoadState.Loading -> {
+                            setShimmerVisibility(true)
+                            FLIPPER_LOADING
+                        }
+                        is LoadState.NotLoading -> {
+                            setShimmerVisibility(false)
+                            FLIPPER_CHARACTERS
+                        }
+                        is LoadState.Error -> {
+                            setShimmerVisibility(false)
+                            FLIPPER_ERROR
+                        }
                     }
                 }
             }
@@ -82,5 +111,6 @@ class CharactersFragment : Fragment() {
         const val FLIPPER_LOADING = 0
         const val FLIPPER_CHARACTERS = 1
         const val FLIPPER_ERROR = 2
+        const val EMPTY = ""
     }
 }
