@@ -82,6 +82,8 @@ dependencies {
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
     testImplementation(libs.junit)
+    testImplementation(libs.mockito.kotlin)
+    testImplementation(libs.kotlinx.coroutines.test)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
@@ -110,9 +112,8 @@ dependencies {
     implementation(libs.androidx.paging.runtime)
     testImplementation(libs.androidx.paging.common)
 
-    // MockK
-    testImplementation(libs.mockk)
-    androidTestImplementation(libs.mockk.android)
+    // Mockito
+    testImplementation(libs.mockito.core)
 
     // DataStore
     implementation(libs.androidx.datastore.preferences)
