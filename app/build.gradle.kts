@@ -75,20 +75,16 @@ android {
 dependencies {
     // Modules
     implementation(project(":core"))
+    implementation(project(":testing"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
-    testImplementation(libs.junit)
-    testImplementation(libs.mockito.kotlin)
-    testImplementation(libs.kotlinx.coroutines.test)
-    androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
     // Navigation
-    androidTestImplementation(libs.androidx.navigation.testing)
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
     implementation(libs.kotlinx.serialization.json)
@@ -110,10 +106,6 @@ dependencies {
 
     // Paging
     implementation(libs.androidx.paging.runtime)
-    testImplementation(libs.androidx.paging.common)
-
-    // Mockito
-    testImplementation(libs.mockito.core)
 
     // DataStore
     implementation(libs.androidx.datastore.preferences)

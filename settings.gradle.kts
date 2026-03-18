@@ -21,3 +21,5 @@ dependencyResolutionManagement {
 rootProject.name = "rickandmorty"
 include(":app")
 include(":core")
+include(":testing")
+include(":testing")

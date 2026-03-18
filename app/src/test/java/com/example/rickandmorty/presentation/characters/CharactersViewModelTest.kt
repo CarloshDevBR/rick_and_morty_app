@@ -1,9 +1,9 @@
 package com.example.rickandmorty.presentation.characters
 
 import androidx.paging.PagingData
-import com.example.domain.model.CharacterData
 import com.example.domain.usecase.GetCharactersUseCase
-import com.example.rickandmorty.presentation.testutils.MainDispatcherRule
+import com.example.testing.MainDispatcherRule
+import com.example.testing.model.CharacterFactory
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.StandardTestDispatcher
@@ -30,11 +30,8 @@ class CharactersViewModelTest {
 
     private val pagingDataCharacters = PagingData.from(
         listOf(
-            CharacterData(
-                id = 1,
-                name = "teste",
-                imageUrl = "teste"
-            )
+            CharacterFactory().create(CharacterFactory.Person.Morty),
+            CharacterFactory().create(CharacterFactory.Person.Rick)
         )
     )
 

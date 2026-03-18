@@ -1,4 +1,4 @@
-package com.example.rickandmorty.presentation.testutils
+package com.example.testing
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
