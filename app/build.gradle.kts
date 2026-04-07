@@ -12,6 +12,16 @@ android {
     namespace = "com.example.rickandmorty"
     compileSdk = 36
 
+    signingConfigs {
+        create("release") {
+            storeFile =
+                file("/Users/carloshi/StudioProjects/rick_and_morty_app/rick_and_morty_app_store.jks")
+            storePassword = "Pokmon0?"
+            keyAlias = "rick-and-morty-app"
+            keyPassword = "Pokmon0?"
+        }
+    }
+
     defaultConfig {
         applicationId = "com.example.rickandmorty"
         minSdk = 24
@@ -74,6 +84,7 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            signingConfig = signingConfigs.getByName("release")
         }
     }
     buildFeatures {

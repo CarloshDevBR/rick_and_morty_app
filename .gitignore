@@ -10,3 +10,4 @@
 gradle/wrapper/gradle-wrapper.properties
 misc.xml
 local.properties
+/store
