@@ -8,10 +8,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="com.example.rickandmorty.debug" />
+                  <option name="mobileSdkAppId" value="1:574458213533:android:b961aebe413d4cfa14d074" />
+                  <option name="projectId" value="rickandmorty-e532e42b" />
+                  <option name="projectNumber" value="574458213533" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />

@@ -56,6 +56,7 @@ android {
             )
         }
         release {
+            applicationIdSuffix = ".release"
             isMinifyEnabled = true
             isShrinkResources = true
 
