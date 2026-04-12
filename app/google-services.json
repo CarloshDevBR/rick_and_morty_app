@@ -1,0 +1,67 @@
+{
+  "project_info": {
+    "project_number": "574458213533",
+    "project_id": "rickandmorty-e532e42b",
+    "storage_bucket": "rickandmorty-e532e42b.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:574458213533:android:b961aebe413d4cfa14d074",
+        "android_client_info": {
+          "package_name": "com.example.rickandmorty.debug"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDaJ-Gwh_0udUEwLoTcRu5swslmDXuNF2w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:574458213533:android:a0a36b25370ec7a014d074",
+        "android_client_info": {
+          "package_name": "com.example.rickandmorty.release"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDaJ-Gwh_0udUEwLoTcRu5swslmDXuNF2w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:574458213533:android:f2aa35d10563f8b814d074",
+        "android_client_info": {
+          "package_name": "com.example.rickandmorty.staging"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDaJ-Gwh_0udUEwLoTcRu5swslmDXuNF2w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

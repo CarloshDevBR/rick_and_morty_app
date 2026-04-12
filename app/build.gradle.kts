@@ -6,6 +6,7 @@ plugins {
     alias(libs.plugins.android.navigation.safe.args)
     alias(libs.plugins.detekt)
     alias(libs.plugins.kotlin.serialization)
+    alias(libs.plugins.google.services)
 }
 
 android {
@@ -123,4 +124,8 @@ dependencies {
 
     // Facebook Shimmer
     implementation(libs.shimmer)
+
+    // Firebase
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.analytics)
 }
