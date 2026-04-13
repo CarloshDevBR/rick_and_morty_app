@@ -1,17 +1,29 @@
 plugins {
-    alias(libs.plugins.android.application)
+    alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.google.ksp)
-    alias(libs.plugins.google.hilt)
     alias(libs.plugins.android.navigation.safe.args)
     alias(libs.plugins.detekt)
     alias(libs.plugins.kotlin.serialization)
-    alias(libs.plugins.google.services)
+    alias(libs.plugins.google.hilt)
+    alias(libs.plugins.google.ksp)
 }
 
 android {
     namespace = "com.example.feature"
     compileSdk = 36
+
+    defaultConfig {
+        minSdk = 24
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        val baseUrl = providers.gradleProperty("BASE_URL").get()
+        val publicKey = providers.gradleProperty("PUBLIC_KEY").get()
+        val privateKey = providers.gradleProperty("PRIVATE_KEY").get()
+
+        buildConfigField("String", "BASE_URL", "\"$baseUrl\"")
+        buildConfigField("String", "PUBLIC_KEY", "\"$publicKey\"")
+        buildConfigField("String", "PRIVATE_KEY", "\"$privateKey\"")
+    }
 
     detekt {
         config.setFrom(files("$rootDir/detekt.yml"))

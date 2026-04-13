@@ -1,10 +1,13 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.google.ksp)
+    alias(libs.plugins.google.hilt)
+    alias(libs.plugins.google.services)
 }
 
 android {
-    namespace = "com.example.rickandmorty"
+    namespace = "com.example.feature"
     compileSdk = 36
 
     defaultConfig {
@@ -13,16 +16,6 @@ android {
         targetSdk = 36
         versionCode = 1
         versionName = "1.0"
-
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-
-        val baseUrl = providers.gradleProperty("BASE_URL").get()
-        val publicKey = providers.gradleProperty("PUBLIC_KEY").get()
-        val privateKey = providers.gradleProperty("PRIVATE_KEY").get()
-
-        buildConfigField("String", "BASE_URL", "\"$baseUrl\"")
-        buildConfigField("String", "PUBLIC_KEY", "\"$publicKey\"")
-        buildConfigField("String", "PRIVATE_KEY", "\"$privateKey\"")
     }
 
     buildTypes {
@@ -54,10 +47,6 @@ android {
             )
         }
     }
-    buildFeatures {
-        viewBinding = true
-        buildConfig = true
-    }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
@@ -72,4 +61,8 @@ android {
 dependencies {
     // Modules
     implementation(project(":feature"))
+
+    // Hilt
+    implementation(libs.hilt.android)
+    ksp(libs.hilt.android.compiler)
 }

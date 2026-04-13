@@ -20,6 +20,6 @@
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
 
--keepclassmembers,allowobfuscation class com.example.rickandmorty.framework.network.response** {
+-keepclassmembers,allowobfuscation class com.example.feature.framework.network.response** {
     @com.google.gson.annotations.SerializedName <fields>;
 }
