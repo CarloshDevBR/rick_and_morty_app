@@ -14,7 +14,7 @@ android {
 
     defaultConfig {
         minSdk = 24
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "com.example.feature.CustomTestRunner"
 
         val baseUrl = providers.gradleProperty("BASE_URL").get()
         val publicKey = providers.gradleProperty("PUBLIC_KEY").get()
@@ -56,6 +56,13 @@ dependencies {
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
     androidTestImplementation(libs.androidx.espresso.core)
+
+    // Fragment Testing
+    debugImplementation(libs.androidx.fragment.testing.manifest)
+    androidTestImplementation(libs.androidx.fragment.testing)
+
+    // Hilt Testing
+    androidTestImplementation(libs.hilt.android.testing)
 
     // Navigation
     implementation(libs.androidx.navigation.fragment.ktx)

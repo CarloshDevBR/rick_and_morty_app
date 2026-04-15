@@ -18,8 +18,10 @@ dependencies {
     api(libs.junit)
     api(libs.kotlinx.coroutines.test)
     api(libs.kotlinx.coroutines.test)
+
+    // Mockito
     api(libs.mockito.kotlin)
 
-    // Paging Common
-    implementation(libs.androidx.paging.common)
+    // Paging
+    api(libs.androidx.paging.common)
 }
