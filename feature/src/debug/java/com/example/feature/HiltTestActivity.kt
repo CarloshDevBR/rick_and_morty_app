@@ -1,7 +1,18 @@
 package com.example.feature
 
-import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import androidx.fragment.app.FragmentActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class HiltTestActivity : AppCompatActivity()
+class HiltTestActivity : FragmentActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        val theme = intent.getIntExtra(
+            "androidx.fragment.app.testing.FragmentScenario.EmptyFragmentActivity.THEME_EXTRAS_BUNDLE_KEY",
+            R.style.Theme_RickAndMorty_app
+        )
+        setTheme(theme)
+        super.onCreate(savedInstanceState)
+    }
+}

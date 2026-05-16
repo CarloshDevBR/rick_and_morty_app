@@ -19,6 +19,9 @@ dependencies {
     api(libs.kotlinx.coroutines.test)
     api(libs.kotlinx.coroutines.test)
 
+    // MockWebServer
+    api(libs.mockwebserver3)
+
     // Mockito
     api(libs.mockito.kotlin)
 

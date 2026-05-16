@@ -24,8 +24,6 @@ import androidx.core.util.Preconditions
 import androidx.fragment.app.Fragment
 import androidx.test.core.app.ActivityScenario
 import androidx.test.core.app.ApplicationProvider
-import androidx.fragment.testing.manifest.R
-
 /**
  * launchFragmentInContainer from the androidx.fragment:fragment-testing library
  * is NOT possible to use right now as it uses a hardcoded Activity under the hood
@@ -37,7 +35,7 @@ import androidx.fragment.testing.manifest.R
  */
 inline fun <reified T : Fragment> launchFragmentInHiltContainer(
     fragmentArgs: Bundle? = null,
-    @StyleRes themeResId: Int = R.style.FragmentScenarioEmptyFragmentActivityTheme,
+    @StyleRes themeResId: Int = R.style.Theme_RickAndMorty_app,
     crossinline action: Fragment.() -> Unit = {}
 ) {
     val startActivityIntent = Intent.makeMainActivity(

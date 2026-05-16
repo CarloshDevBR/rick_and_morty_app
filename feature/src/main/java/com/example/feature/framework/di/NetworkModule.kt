@@ -1,6 +1,7 @@
 package com.example.feature.framework.di
 
 import com.example.feature.BuildConfig
+import com.example.feature.framework.di.qualifier.BaseUrl
 import com.example.feature.framework.network.RickAndMortyApi
 import com.example.feature.framework.network.interceptor.AuthorizationInterceptor
 import dagger.Module
@@ -60,11 +61,12 @@ object NetworkModule {
     @Provides
     fun provideRetrofit(
         okHttpClient: OkHttpClient,
-        converterFactory: GsonConverterFactory
+        converterFactory: GsonConverterFactory,
+        @BaseUrl baseUrl: String
     ): RickAndMortyApi =
         Retrofit
             .Builder()
-            .baseUrl(BuildConfig.BASE_URL)
+            .baseUrl(baseUrl)
             .client(okHttpClient)
             .addConverterFactory(converterFactory)
             .build()
