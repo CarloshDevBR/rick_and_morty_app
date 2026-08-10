@@ -23,11 +23,6 @@ tasks.withType<Detekt>().configureEach {
     }
 }
 subprojects {
-    plugins.withId("com.android.application") {
-        tasks.named("preBuild") {
-            dependsOn("detekt")
-        }
-    }
     plugins.withId("com.android.library") {
         tasks.named("preBuild") {
             dependsOn("detekt")

@@ -19,7 +19,3 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
-
--keepclassmembers,allowobfuscation class com.example.feature.framework.network.response** {
-    @com.google.gson.annotations.SerializedName <fields>;
-}
